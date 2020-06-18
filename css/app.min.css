@@ -1546,11 +1546,13 @@ pre code {
     background-color: transparent
 }
 .table td, .table th {
-    padding: 1rem 1.5rem;
+    padding: 1rem 2.5rem;
     vertical-align: top;
     border-top: 1px solid #f2f4f5;
-	font-size: 12px;
-white-space: nowrap;
+    font-size: 15px;
+    white-space: nowrap;
+    font-weight: 600;
+    color: #282b2f !important;
 }
 .table thead th {
     vertical-align: bottom;
@@ -13882,6 +13884,9 @@ thead tr, tfoot tr{
     /* width: 100%; */
     font-size: 24px;
     height: 54px;
+	justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .bg-gray-lighter{
@@ -14319,6 +14324,7 @@ header .section-header{
     justify-content: flex-end;
     align-items: center;
 	text-align: right;
+	font-weight: 800;
 }
 
 .table.table-custom td:last-child button{
@@ -14352,8 +14358,10 @@ td .badge{
 }
 
 .custom-table-container tr td:first-child, .custom-table-container th:first-child{
+/*
 	padding-left: 1rem !important;
     padding: 1rem;
+*/
     padding-right: 0px !important;
 }
 /*table custom styles*/
@@ -14690,6 +14698,9 @@ color: white
 }
 .rounded-circle [class^="flaticon-"]:before{
 	font-size: 33px;
+}
+.table-custom-bg{
+	border: 1px solid #00000038 !important;
 }
 
 
