@@ -34,6 +34,56 @@ $(window).on('load', function(){
 			$('.trend i').addClass('zmdi-dot-circle');
 		}
 	
+	
+	//	for the months
+	
+		var mon_diff=$('.month-trend h4').text();
+	//		diff=diff.replace(',', '');
+		var count = (mon_diff.match(/,/g) || []).length;
+	
+		var i;
+		count=count+1;
+		for (i = 0; i<count; i++) {
+		mon_diff=mon_diff.replace(',', '')
+		}
+		
+		mon_diff=parseInt(mon_diff);
+	
+		if(mon_diff>0){
+			$('.month-trend h4').addClass('text-success');
+			$('.month-trend i').addClass(' zmdi-trending-up');
+		}
+	
+		if(mon_diff<0){
+			$('.month-trend h4').addClass('text-danger');
+			$('.month-trend i').addClass('zmdi-trending-down');
+		}
+	
+		if(mon_diff==0){
+			$('.month-trend h4').addClass('text-info');
+			$('.month-trend i').addClass('zmdi-dot-circle');
+		}
+	
+	//changing graph
+	$('#select-graph').on('change', function(){
+		var selected=$(this).val();
+//		alert(selected);
+		if(selected=="Detailed"){
+			$('#revenuestream-annual').removeClass('d-none');
+			$('#substreams').addClass('d-none');
+		}
+		else{
+			$('#revenuestream-annual').addClass('d-none');
+			$('#substreams').removeClass('d-none');
+			
+		}
+		
+	});
+	
+	
+	
+	//	for the months
+	
 		
 	//collection trends
 	
@@ -60,7 +110,9 @@ $(window).on('load', function(){
 		}
 	
 		$('.the-streams .form-group').each(function(index){
-			var stream_collection=$(this).children("label").children("span").text()
+			var stream_collection=$(this).children("label").children("span").eq(1).text();
+			var stream_name=$(this).children("label").children("span").eq(0).text();
+//			alert(stream_name);
 			var count = (stream_collection.match(/,/g) || []).length;
 //			alert(count);
 			var i;
@@ -75,7 +127,7 @@ $(window).on('load', function(){
 			var percentage=parseInt((stream_collection*100)/today_stream_total);
 			//			alert(percentage);
 			var progress_value=percentage +"%";
-			$(this).attr('data-original-title',progress_value);
+			$(this).attr('data-original-title',progress_value +" (Click to view "+stream_name+" Collection summary)");
 			
 			var the_bar=$(this).children(".progress").children(".progress-bar");
 			the_bar.addClass("added");

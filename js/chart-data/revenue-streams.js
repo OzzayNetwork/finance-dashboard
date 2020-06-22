@@ -1,14 +1,14 @@
 Highcharts.chart('RevenueStreams', {
     chart: {
         type: 'column',
-		backgroundColor: 'transparent'
-				
+        backgroundColor: 'transparent'
+
     },
     title: {
         text: 'Collection by Revenue stream',
-		style:{
-			color: '#a5a8ad'
-		}
+        style: {
+            color: '#a5a8ad'
+        }
     },
     xAxis: {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -24,7 +24,7 @@ Highcharts.chart('RevenueStreams', {
             enabled: false,
             style: {
                 fontWeight: 'bold',
-               color: '#a5a8ad'
+                color: '#a5a8ad'
             }
         }
     },
@@ -39,28 +39,33 @@ Highcharts.chart('RevenueStreams', {
         borderWidth: 1,
         shadow: false
     },
-	legend: {
-            layout: 'vertical',
-            align: 'right',
-            verticalAlign: 'bottom',
-            borderWidth: 0,
-			backgroundColor:'transparent',
-			borderColor: '#CCC',
-			borderWidth: 1,
-			itemStyle: {
+    legend: {
+        layout: 'vertical',
+        align: 'right',
+        verticalAlign: 'bottom',
+        borderWidth: 0,
+        backgroundColor: 'transparent',
+        borderColor: '#CCC',
+        borderWidth: 1,
+        itemStyle: {
             color: 'white',
-			font: '600 10px "Muli", sans-serif'
+            font: '600 10px "Muli", sans-serif'
         },
         itemHoverStyle: {
             color: 'white',
-			font: '600 10px "Muli", sans-serif'
+            font: '600 10px "Muli", sans-serif'
         },
-        },
+    },
     tooltip: {
         headerFormat: '<h3><strong class="mb-3" style="font-size: 20px !important;">{point.x}</strong></h3><br/><br/><br/>',
         /*  pointFormat: '{series.name}: {point.y}<br/>Total: {point.stackTotal}', */
         pointFormat: '<strong style="color:{series.color}; font-weight:bold;">{series.name}</strong>: <b>{point.y}</b> ({point.percentage:.0f}%)<br/><br/>',
+		footerFormat	: 
+                 '<table></tbody><tr style="border-top:1px solid black 0.5px; color:white;"><th>Total: </th>'
+        		+'<td style="text-align:right"><b>KES {point.total:,.0f}</b></td></tr>'
+            	+'</tbody></table>',
         shared: true,
+        crosshairs: true
 
 
     },

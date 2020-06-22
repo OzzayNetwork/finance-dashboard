@@ -1,6 +1,6 @@
 // Create the chart
 Highcharts.setOptions({
-    colors: ['#007fff']
+    colors: ['#67ff6b']
 });
 Highcharts.chart('transaction-data', {
     chart: {
@@ -23,7 +23,7 @@ Highcharts.chart('transaction-data', {
     plotOptions: {
         series: {
             borderWidth: 0,
-            borderColor: '#007fff'
+            borderColor: '#67ff6b'
         }
     },
 

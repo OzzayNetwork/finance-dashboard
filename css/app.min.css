@@ -14756,5 +14756,30 @@ opacity:1
 .height-54{
 	height: calc(100% - 54px);
 }
+.the-streams a{
+	color: rgb(165, 168, 173);
+}
+.the-streams a:hover{
+	color: white;
+	cursor: pointer;
+	
+}
+.today-stream .today-collections h4,.monthly-collections h4{
+	font-size: 36px;
+	font-weight: 600;
+}
+.font-22{
+	font-size: 22px !important;
+}
+.today-stream{
+	display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.pointer{
+	cursor: pointer;
+}
 
 
