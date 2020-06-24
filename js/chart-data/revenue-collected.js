@@ -1,7 +1,7 @@
-// Create the chart
-Highcharts.setOptions({
-    colors: ['#67ff6b']
-});
+ // Create the chart
+//Highcharts.setOptions({
+//    colors: ['#67ff6b']
+//});
 Highcharts.chart('transaction-data', {
     chart: {
         backgroundColor: 'transparent',
@@ -80,7 +80,8 @@ Highcharts.chart('transaction-data', {
 
     series: [{
         name: "Monthly Transactions",
-        colorByPoint: true,
+        colorByPoint: false,
+		color: '#67ff6b', // blue
         data: [{
                 name: "Jan",
                 y: 2000000,
@@ -296,6 +297,7 @@ Highcharts.chart('transaction-data', {
         }, {
             name: '3rd December 2020',
             id: 'dec3',
+			type: 'spline',
             data: [
                 ['12AM', 17.2],
                 ['1AM', 25.2],
@@ -309,7 +311,7 @@ Highcharts.chart('transaction-data', {
                 ['9AM', 17.2],
                 ['10AM', 25.2],
                 ['11AM', 5],
-                ['12AM', 7],
+                ['12PM', 7],
                 ['1PM', 8],
                 ['2PM', 17],
                 ['3PM', 37],
