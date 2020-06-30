@@ -11,6 +11,28 @@ $(function () {
             color: '#3b3b3b', // blue
             borderWidth: 1,
             borderColor: '#212327',
+			borderColor: '#212327',
+             dataLabels: {
+                enabled: true,
+                backgroundColor: 'rgba(0,0,0,0.3)',
+                borderRadius: 0,
+                padding: 4,
+//                color: '#a5a8ad',
+                format: '{point.name}',
+				 shadow: "none",
+               
+                style: {
+                    textTransform: 'uppercase',
+                    fontWeight: '500',
+					fontFamily: '"Muli", sans-serif',
+  					fontSize: '1rem'
+                }
+            },
+			symbol:'circle',
+			 marker: {
+            symbol: 'square'
+        },
+    
 
             "type": "map",
             "joinBy": "id",
