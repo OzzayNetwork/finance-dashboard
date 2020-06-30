@@ -13657,6 +13657,9 @@ ul.jqtree-tree ul.jqtree_common {
 .content:not(.content--boxed):not(.content--full) {
     padding: 102px 30px 0 300px;
 }
+	.map-main-container{
+		padding: 102px 30px 0 270px;
+	}
 }
 
 @media only screen and (min-width:768px){
@@ -14819,7 +14822,59 @@ opacity:1
 .targets-container div{
 	width: 100%;
 }
+.font-12{
+	font-size: 1.2rem !important;
+	font-weight: 600;
+}
+.map-main-container{
+	background: #212327;
+}
+.text-light{
+	font-weight: 300;
+}
+.map-buttons .col:last-child{
+	display: flex;
+    justify-content: flex-end;
+}
+.map-buttons button{
+	background: transparent;
+    padding: 0.5rem 1rem;
+    border: 1px solid #646568;
+    position: relative;
+    font-size: .9em;
+    margin-bottom: 1em;
+    color: white;
+    display: flex;
+    margin-left: 1rem;
+    border-radius: 151px;
+    justify-content: center;
+    align-items: center;
+	cursor: pointer;
+}
+.map-buttons button span{
+	height: 1rem;
+    border-radius: 50%;
+    background-color: #646568;
+    margin-right: 1rem;
+    width: 1rem;
+    display: block;
+}
+.map-buttons #today.active span{
+	background: #45d21a
+}
+.map-buttons #this-month.active span{
+	background: #fdc502
+}
+.map-buttons #financial-year.active span{
+	background: #2e71ff
+}
 
+.map-buttons #this-week.active span{
+	background: #ea00d9
+}
 
+.map-main-container .rev-title-container h1{
+	color: rgba(255,255,255,0.5);
+}
 
 
