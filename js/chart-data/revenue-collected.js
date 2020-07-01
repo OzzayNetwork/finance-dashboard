@@ -52,12 +52,23 @@ Highcharts.chart('transaction-data', {
     legend: {
         enabled: true,
         backgroundColor: 'transparent',
+		 color: '#a5a8ad',
+		  itemStyle: {
+//                 fontSize:'35px',
+//                 font: '35pt Trebuchet MS, Verdana, sans-serif',
+                 color: '#a5a8ad'
+              },
+              itemHoverStyle: {
+                 color: 'white'
+              },
+              itemHiddenStyle: {
+                 color: '#444'
+              },
         style: {
             color: '#a5a8ad',
 
         }
     },
-
     tooltip: {
         headerFormat: '<span style="font-size:16px; font-weight:800;">{series.name}</span><br>',
         pointFormat: '<span  style="font-size:16px; font-weight:800; color:{point.color}">{point.name}</span>: <b style="color:{point.color}">KES {point.y}</b><br/>',
