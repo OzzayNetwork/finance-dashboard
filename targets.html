@@ -36,6 +36,7 @@
 
         <!-- App styles -->
         <link rel="stylesheet" href="css/app.min.css">
+		<link rel="stylesheet" href="css/dropify2.css">
     </head>
 
     <body data-ma-theme="green">
@@ -253,7 +254,7 @@
                                 <li><a href="detailed-monthly.html">Monthly report</a></li>
                             </ul>
                         </li>
-						 <li class="navigation__active"><a href="targets.html"><i class="flaticon-target"></i>Targets</a></li>
+						 <li class="navigation__active"><a href="targets.html"><i class="pe-7s-target"></i>Targets</a></li>
 						 <li class="navigation__active"><a href="change-pass.html"><i class="flaticon-password"></i>Change password</a></li>
                          <li class="navigation__active mt-4"><a href="landing-page.html"><i class="zmdi zmdi-power"></i>Logout</a></li>
                     </ul>
@@ -265,6 +266,120 @@
 				</div>
 			</div>
             <section class="content custom-table-container">
+				<!--new financial year targets-->
+			<div class="modal" id="target-upload" tabindex="-1" role="dialog">
+			  <div class="modal-dialog  modal-dialog-centered" role="document">
+				<div class="modal-content">
+				  <div class="modal-header">
+					<h3 class="modal-title">Upload Targets Document</h3>
+					  
+					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					  <span aria-hidden="true">&times;</span>
+					</button>
+				  </div>
+				  <div class="modal-body pt-0">
+                      <hr>
+                      <p class="text-danger bg-danger-light p-3"><span>Make sure the document you are about to upload conforms with the target's document set structure to avoid any errors during upload.</span></p>
+                      <a href="" class="text-info"> Download Target document template <i class="ti-download ml-1"></i></a>
+					  	
+					 	<div class="col-12 p-0 request-container animated fadeIn pt-3">
+							
+							 <form class="drop-section-container cursor-pointer p-3">
+								 <div class="form-group pb-3 px-0 pb-2 m-0">
+										<label for="inputGroupSelect04" class="text-capitalize font-weight-bold text-danger"><h5>Enter financial Year</h5></label>
+										<input type="text" class="form-control fy-text" placeholder="Eg 2020/2021" pattern="[0-9]{4}[/]{1}[0-9]{4}" title="Use the following pattern eg 2018/2019" autofocus aria-label="Use the following pattern eg 2018/2019">
+									  </div>
+								 
+								<input type="file"  name="file" id="file" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"  class="dropify " data-show-loader="true" />
+								
+								<div class="form-group pt-3 px-0 m-0 ">
+									<button class="btn btn-primary text-capitalize w-100 text-center btn-lg"><i class="zmdi zmdi-upload mr-3"></i>Create Target</button>
+								</div>
+							</form>
+					  	</div>
+				  </div>
+				  
+				</div>
+			  </div>
+			</div>
+			<!--new targets-->
+				<!-- edit collectable revenue-->
+				<div class="modal fade" id="edit-revenue" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+				  <div class="modal-dialog modal-dialog-centered" role="document">
+					<div class="modal-content">
+					  <div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLongTitle">Exclude revenue source from colletable target</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						  <span aria-hidden="true">&times;</span>
+						</button>
+					  </div>
+					  <div class="modal-body">
+						  <p>Check a revenue stream you would like to be excluded from the list of collectable revenue</p>
+							<div class="listview rev-listview">
+                            <div class="listview__item">
+                                <div class="checkbox listview__checkbox">
+                                    <input type="checkbox" id="listview-1">
+                                    <label for="listview-1" class="checkbox__label"></label>
+                                </div>
+                                <div class="listview__content">
+                                    <p>Stream Name</p>
+                                </div>
+                            </div>
+
+                            <div class="listview__item">
+                                <div class="checkbox listview__checkbox">
+                                    <input type="checkbox" id="listview-2">
+                                    <label for="listview-2" class="checkbox__label"></label>
+                                </div>
+
+                                <div class="listview__content">
+                                    <p>Revenue source name</p>
+                                </div>
+                            </div>
+
+                            <div class="listview__item">
+                                <div class="checkbox listview__checkbox">
+                                    <input type="checkbox" id="listview-3">
+                                    <label for="listview-3" class="checkbox__label"></label>
+                                </div>
+
+                                <div class="listview__content">
+                                    <p>Revenue source name</p>
+                                </div>
+                            </div>
+
+                            <div class="listview__item">
+                                <div class="checkbox listview__checkbox">
+                                    <input type="checkbox" id="listview-4">
+                                    <label for="listview-4" class="checkbox__label"></label>
+                                </div>
+
+                                <div class="listview__content">
+                                    <p>Revenue source name</p>
+                                </div>
+                            </div>
+
+                            <div class="listview__item">
+                                <div class="checkbox listview__checkbox">
+                                    <input type="checkbox" id="listview-5">
+                                    <label for="listview-5" class="checkbox__label"></label>
+                                </div>
+
+                                <div class="listview__content">
+                                    <p>Revenue source name</p>
+                                </div>
+                            </div>
+                        </div>
+					  </div>
+					  <div class="modal-footer">
+						<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+						<button type="button" class="btn btn-primary">Exclude</button>
+					  </div>
+					</div>
+				  </div>
+				</div>
+<!--				edit collectable revenue-->
+			
 				
                 <header class="content__title px-0 border-0">
 				 	<div class="row">
@@ -289,7 +404,7 @@
 									<a href="#" class="dropdown-item">2018/2019</a>
 									<a href="#" class="dropdown-item">2019/2020</a>
 									<a href="#" class="dropdown-item">2020/2021</a>
-									<a href="#" class="dropdown-item">Create New</a>
+									<a href="#" class="dropdown-item" data-toggle="modal" data-target="#target-upload">Create New</a>
 								</div>
 							</div>
 							</div>
@@ -301,8 +416,16 @@
 					<div class="col-12 p-0">
 						<div class="card table-custom-bg">
 							
+							
 							<div class="card-body">
-								
+								<div class="row">
+									<div class="col-12 pb-2 buttons-containment">
+                                        <button class="btn btn-primary  p-3 btn-2layers"  data-toggle="modal" data-target="#target-upload"><i class="ti-plus"></i><div class="btn-txt"><div><strong class="text-uppercase">Upload</strong></div> New Financial year targets</div></button>
+                                          <span class="mx-3">    <strong>- OR -</strong>   </span>
+                                         <span class="btn btn-secondary p-3 btn-2layers"><i class="ti-download"></i><div class="btn-txt"><div><strong class="text-uppercase">Download</strong></div>Target document template</div></span>
+									</div>
+								</div>
+
 								<div class="table-responsive">
 									<table class="table table-hover table-custom spacing8" id="data-table">
 										<thead>
@@ -482,7 +605,11 @@
 		<!-- App functions and actions -->
 		<script src="js/wow.js"></script>
         <script src="js/app.min.js"></script>
-        <script src="js/main.js"></script>		
+        <script src="js/main.js"></script>
+		<script src="js/dropify2.js"></script>
+		<script>
+			$('.dropify').dropify();
+		</script>
     </body>
 
 <!-- Mirrored from byrushan.com/projects/material-admin/app/2.6/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jul 2019 11:34:43 GMT -->
