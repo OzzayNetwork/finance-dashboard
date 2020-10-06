@@ -2,196 +2,6 @@ $(window).on('load', function(){
 	
 	new WOW().init();
 	
-	//-------------------------------------------------------
-	//data representation functions
-	//-------------------------------------------------------
-	
-	//collection trends
-		var diff=$('.trend h4').text();
-	//		diff=diff.replace(',', '');
-		var count = (diff.match(/,/g) || []).length;
-	
-		var i;
-		count=count+1;
-		for (i = 0; i<count; i++) {
-		 diff=diff.replace(',', '')
-		}
-		
-		diff=parseInt(diff);
-	
-		if(diff>0){
-			$('.trend h4').addClass('text-success');
-			$('.trend i').addClass(' zmdi-trending-up');
-		}
-	
-		if(diff<0){
-			$('.trend h4').addClass('text-danger');
-			$('.trend i').addClass('zmdi-trending-down');
-		}
-	
-		if(diff==0){
-			$('.trend h4').addClass('text-info');
-			$('.trend i').addClass('zmdi-dot-circle');
-		}
-	
-	
-	//	for the months
-	
-		var mon_diff=$('.month-trend h4').text();
-	//		diff=diff.replace(',', '');
-		var count = (mon_diff.match(/,/g) || []).length;
-	
-		var i;
-		count=count+1;
-		for (i = 0; i<count; i++) {
-		mon_diff=mon_diff.replace(',', '')
-		}
-		
-		mon_diff=parseInt(mon_diff);
-	
-		if(mon_diff>0){
-			$('.month-trend h4').addClass('text-success');
-			$('.month-trend i').addClass(' zmdi-trending-up');
-		}
-	
-		if(mon_diff<0){
-			$('.month-trend h4').addClass('text-danger');
-			$('.month-trend i').addClass('zmdi-trending-down');
-		}
-	
-		if(mon_diff==0){
-			$('.month-trend h4').addClass('text-info');
-			$('.month-trend i').addClass('zmdi-dot-circle');
-		}
-	
-	//changing graph
-	$('#select-graph').on('change', function(){
-		var selected=$(this).val();
-//		alert(selected);
-		if(selected=="Detailed"){
-			$('#revenuestream-annual').removeClass('d-none');
-			$('#substreams').addClass('d-none');
-		}
-		else{
-			$('#revenuestream-annual').addClass('d-none');
-			$('#substreams').removeClass('d-none');
-			
-		}
-		
-	});
-	
-	
-	
-	//	for the months
-	
-		
-	//collection trends
-	
-	//-------------------------------------------------------
-	//data representation functions
-	//-------------------------------------------------------
-	
-	
-	//=======================================================
-	/*the streams progress bars*/
-	//=======================================================
-	stream_calc();
-	
-	function stream_calc(){
-		var stream_total;
-		
-		var today_stream_total=$(".today-collections h4").text();
-		var count = (today_stream_total.match(/,/g) || []).length;
-	
-		var i;
-		count=count+1;
-		for (i = 0; i<count; i++) {
-		 today_stream_total=today_stream_total.replace(',', '')
-		}
-	
-		$('.the-streams .form-group').each(function(index){
-			var stream_collection=$(this).children("label").children("span").eq(1).text();
-			var stream_name=$(this).children("label").children("span").eq(0).text();
-//			alert(stream_name);
-			var count = (stream_collection.match(/,/g) || []).length;
-//			alert(count);
-			var i;
-			count=count;
-			for (i = 0; i<count; i++) {
-			stream_collection=stream_collection.replace(',', '');		
-			}
-			stream_collection=parseInt(stream_collection);
-
-			stream_total=stream_total+stream_collection;
-			
-			var percentage=parseInt((stream_collection*100)/today_stream_total);
-			//			alert(percentage);
-			var progress_value=percentage +"%";
-			$(this).attr('data-original-title',progress_value +" (Click to view "+stream_name+" Collection summary)");
-			
-			var the_bar=$(this).children(".progress").children(".progress-bar");
-			the_bar.addClass("added");
-			
-			the_bar.css("width",progress_value);
-			
-			//			progress color controller
-			
-			
-			if (percentage>0) {
-				
-
-				if (percentage<15) {
-					the_bar.addClass('progress-bar-dangger');
-				} 			
-			} 
-
-
-			if (percentage>14) {
-
-				if (percentage<40) {
-					the_bar.addClass('progress-bar-warning');
-				} 			
-			} 
-
-			if (percentage>39) {
-
-				if (percentage<75) {
-					the_bar.addClass('progress-bar-info');
-				} 			
-			} 
-
-			if (percentage>74) {
-
-				if (percentage<101) {
-					the_bar.addClass('progress-bar-success');
-				} 			
-			}
-			
-//			progress color controller
-			
-				
-			
-
-		});
-//		alert(today_stream_total);
-	}
-
-
-	//=======================================================
-	/*the streams progress bars*/
-	//=======================================================
-	
-	var to_day=moment().format('ddd, MMMM Do YYYY');
-	$('.date-range-text').text(to_day);
-	$('.today').text(moment().format("MMM Do YY"));
-	
-	$('.year-abr').text(moment().format('YY'));
-	$('.this-year').text(moment().format('YYYY'));
-	$('.this-month').text(moment().format('MMMM'));
-	$('.month-abr').text(moment().format('MMM'));
-//	alert(moment().format('YY'));
-	
-	
 //	custom day time picker
 	$('#daily_date').on('change', function(){
 		var dated=$(this).val();
@@ -199,6 +9,116 @@ $(window).on('load', function(){
 		$('.the_day').text(dated);
 //		alert(moment(dated).format('LL'));
 	});
+	
+	
+	//decline requests
+	$('.decline-btn').on('click', function(){
+		$('.modal .request-container').addClass('d-none');
+		$('.modal .decline-reason').removeClass('d-none');
+		$(this).parent().addClass('d-none');
+	});
+	
+	
+	
+	$('.canceldec-btn').on('click', function(){
+		$('.modal .request-container').removeClass('d-none');
+		$('.modal .decline-reason').addClass('d-none');
+		$(this).parent().parent().parent().parent().parent().parent().siblings('.modal-footer').removeClass('d-none');
+	});
+	
+	$('#associate').on('click', '.close', function(){
+		$('.modal .request-container').removeClass('d-none');
+		$('.modal .decline-reason').addClass('d-none');
+		$('#associate .modal-footer').removeClass('d-none');
+	});
+	//decline requests
+	
+	//card deactivation
+	$('.table').on('click', '.deactivator',function(){
+		var the_title=$(this).parent().siblings('.std_name').text();
+		$('#deactivate-title').text("Deactivate "+the_title+"'s Card");
+	});
+	
+	//my list of blinkers
+	$('.table').on('click', '.my_blinkers', function(){
+		var the_title=$(this).parent().siblings('.the_guardian').children('p').children('a').text();
+		$('#MyBlinkers #MyBlinkers_title').text(the_title+"'s Blinkers");
+	});
+	
+	//my list of guardians
+	$('.table').on('click', '.my_guardians', function(){
+		var the_title=$(this).parent().siblings('.the_blinkers').children('p').children('a').text();
+		$('#MyGuardians #MyGuardians_title').text(the_title+"'s Guardians");
+	});
+	
+	//------------------------------------------------------------------------------------------------------
+	//blocking functions
+	//------------------------------------------------------------------------------------------------------
+	
+	//parent accounts blocking
+	$('.table').on('click', '.deactivate-parent', function(){
+		var the_title=$(this).parent().siblings('.the_guardian').children('p').children('a').text();
+		$('#deactivate-parent #deactivate-parent-title').text("Why do you want to block "+the_title+"'s Account?");
+	})
+	//parent account blocking
+	
+	//decline school application
+	$('.table').on('click', '.decline-school', function(){
+		var the_title=$(this).parent().siblings('.the_school').children('p').children('a').text();
+		$('#decline-school #decline-school-title').text("Why do you want to block "+the_title+"'s application?");
+	})
+	//decline school application
+	
+	//students account blocking
+	$('.table').on('click', '.deactivate-blinker', function(){
+		var the_title=$(this).parent().siblings('.the_blinkers').children('p').children('a').text();
+		$('#deactivate-blinker #deactivate-blinker-title').text("Why do you want to block "+the_title+"'s Account?");
+	});
+	//students account blocking
+	
+	//deactivating shop
+	
+	$('.table').on('click', '.deactivate-shop', function(){
+		var the_title=$(this).parent().siblings('.shops_name').text();
+		$('#deactivate-shop #deactivate-shop-title').text("Why do you want deactivate "+the_title+"'s shop?");
+	});
+	//deactivating shop
+	
+	//deactivating system usres
+	
+	$('.table').on('click', '.deactivate-user', function(){
+		var the_title=$(this).parent().siblings('.the_user').children('p').text();
+		$('#deactivate-user #deactivate-user-title').text("Why do you want deactivate "+the_title+"'s Account?");
+	});
+	//------------------------------------------------------------------------------------------------------
+	//blocking functions
+	//------------------------------------------------------------------------------------------------------
+	
+	//terminating association
+	$('.table').on('click', '.terminate-association', function(){
+		var the_guardian=$(this).parent().siblings('.the-guardian').children('p').text();
+		var the_blinker=$(this).parent().siblings('.blinkers_name').text();
+		$('#terminate-association #terminate-association-title').text("What's the reason for terminating "+the_guardian+"'s and "+the_blinker+"'s Association" );
+	});
+	//terminating association
+	
+	
+	
+	//decline association
+	$('.table').on('click', '.disaprove-association', function(){
+		var the_guardian=$(this).parent().siblings('.the-guardian').children('p').text();
+		var the_blinker=$(this).parent().siblings('.blinkers_name').text();
+		$('#disaprove-association #disaprove-association-title').text("What's the reason for terminating "+the_guardian+"'s and "+the_blinker+"'s Association request" );
+	});
+	//decline association
+	
+	
+	
+//	$('.table-ranger').on('change', function(){
+//		var therange=$(this).val();
+//		alert(therange);
+//	});
+	
 	$('.table-ranger').on('change', function(){
 		
 	});
@@ -244,13 +164,7 @@ $(window).on('load', function(){
 			//======= write custom functions bellow once a change has been made to the date range=======
 			
 			//function to update text output with new date range
-			if(date1read==date2read){
-				$('.date-range-text').text(date1read);	
-			}
-			else{
-				$('.date-range-text').text(date1read+' To '+date2read);	
-			}
-					
+			$('.date-range-text').text(date1read+' To '+date2read);			
 			
        
     }
@@ -337,3 +251,16 @@ $(document).ready(function(){
 	});
 
   });
+
+    //================================================
+  //map scripts
+  //================================================
+  $('.map-key-card').on('click', function(){
+	$('.map-card').removeClass('d-none');
+	});
+
+	$('.close-map-key').on('click', function(){
+  $('.map-card').addClass('d-none');
+  });
+
+  

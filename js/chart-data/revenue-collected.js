@@ -155,10 +155,15 @@ Highcharts.chart('transaction-data', {
             }
         ]
     }],
+
     drilldown: {
+        chart: {
+            backgroundColor: 'transparent',
+            type: 'column'
+        },
         series: [{
-            name: 'December 2020',
-            id: 'dec',
+            name: 'january',
+            id: 'january',
             data: [{
                     name: '1st',
                     y: 22,
