@@ -13,7 +13,6 @@ Highcharts.chart('transaction-data', {
             color: '#a5a8ad'
         }
     },
-
     accessibility: {
         announceNewData: {
             enabled: true
@@ -26,7 +25,6 @@ Highcharts.chart('transaction-data', {
             borderColor: '#67ff6b'
         }
     },
-
     xAxis: {
         type: 'category',
         lineColor: '#a5a8ad',

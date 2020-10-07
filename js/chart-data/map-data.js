@@ -138,8 +138,10 @@ $(function () {
                 }
             ],
             data: [{
+                    //Langata
                     "id": "id0",
                     "y": 0,
+                    drilldown: 'langata',
                     value: 30
                 },
                 {
@@ -147,12 +149,14 @@ $(function () {
                     "id": "id1",
                     "y": 1,
                     value: 6,
+                    drilldown: 'dagoreti_south',
                     name: "Point2",
                 },
                 {
                     //kibra
                     "id": "id2",
                     "y": 2,
+                    drilldown: 'kibra',
                     value: 252389
                 },
                 {
@@ -254,7 +258,200 @@ $(function () {
                 }
             ]
         }],
-
+        drilldown: {
+            chart: {
+                backgroundColor: 'transparent',
+                type: 'column'
+          },
+            series: [{
+              type: 'bar',
+              id: 'langata',
+              name: 'langata',
+              colorByPoint: true,
+              data: [{
+                name: '1st',
+                y: 22,
+                drilldown: 'dec1'
+            },
+            {
+                name: '2nd',
+                y: 22,
+                drilldown: 'dec2'
+            },
+            {
+                name: '3rd',
+                y: 224,
+                drilldown: 'dec3'
+            },
+            {
+                name: '4th',
+                y: 202,
+                drilldown: 'dec3'
+            },
+            {
+                name: '5th',
+                y: 272,
+                drilldown: 'dec5'
+            },
+            {
+                name: '6th',
+                y: 172,
+                drilldown: 'dec6'
+            }, {
+                name: '7th',
+                y: 122,
+                drilldown: 'dec6'
+            }, {
+                name: '8th',
+                y: 172,
+                drilldown: 'dec8'
+            }, {
+                name: '9th',
+                y: 105,
+                drilldown: 'dec9'
+            }, {
+                name: '10th',
+                y: 272,
+                drilldown: 'dec10'
+            }, {
+                name: '11th',
+                y: 272,
+                drilldown: 'dec11'
+            }, {
+                name: '12th',
+                y: 572,
+                drilldown: 'dec12'
+            }, {
+                name: '13th',
+                y: 72,
+                drilldown: 'dec13'
+            }, {
+                name: '13th',
+                y: 292,
+                drilldown: 'dec13'
+            }, {
+                name: '14th',
+                y: 472,
+                drilldown: 'dec14'
+            }, {
+                name: '15th',
+                y: 272,
+                drilldown: 'dec15'
+            }, {
+                name: '16th',
+                y: 394,
+                drilldown: 'dec16'
+            }, {
+                name: '17th',
+                y: 27,
+                drilldown: 'dec17'
+            }, {
+                name: '18th',
+                y: 372,
+                drilldown: 'dec18'
+            }, {
+                name: '19th',
+                y: 524,
+                drilldown: 'dec19'
+            }, {
+                name: '20th',
+                y: 564,
+                drilldown: 'dec20'
+            }, {
+                name: '21st',
+                y: 272,
+                drilldown: 'dec21'
+            }, {
+                name: '22nd',
+                y: 22,
+                drilldown: 'dec22'
+            }, {
+                name: '23rd',
+                y: 272,
+                drilldown: 'dec23'
+            }, {
+                name: '24th',
+                y: 272,
+                drilldown: 'dec24'
+            }, {
+                name: '25th',
+                y: 172,
+                drilldown: 'dec25'
+            }, {
+                name: '26th',
+                y: 272,
+                drilldown: 'dec26'
+            }, {
+                name: '27th',
+                y: 272,
+                drilldown: 'dec27'
+            }, {
+                name: '28th',
+                y: 452,
+                drilldown: 'dec28'
+            }, {
+                name: '29th',
+                y: 458,
+                drilldown: 'dec29'
+            }, {
+                name: '30th',
+                y: 226,
+                drilldown: 'dec30'
+            }, {
+                name: '31st',
+                y: 152,
+                drilldown: 'dec31'
+            }
+              ]
+            },{
+              type: 'bar',
+              id: 'dagoreti_south',
+              name: 'dagoreti_south',
+              colorByPoint: true,
+              data: [
+                ['Column1OC', 9],
+                ['Column2OC', 1],
+                ['Column3OC', 4]
+              ]
+            },{
+              type: 'bar',
+              name: 'kibra',
+              id: 'kibra',
+              colorByPoint: true,
+              data: [
+                ['Column1AF', 6],
+                ['Column2AF', 6],
+                ['Column3AF', 5]
+              ]
+            },{
+              type: 'bar',
+              name: 'Asia',
+              colorByPoint: true,
+              data: [
+                ['Column1AS', 9],
+                ['Column2AS', 1],
+                ['Column3AS', 2]
+              ]
+            },{
+              type: 'bar',
+              name: 'North America',
+              colorByPoint: true,
+              data: [
+                ['Column1NA', 9],
+                ['Column2NA', 1],
+                ['Column3NA', 9]
+              ]
+            },{
+              type: 'bar',
+              name: 'South America',
+              colorByPoint: true,
+              data: [
+                ['Column1SA', 2],
+                ['Column2SA', 9],
+                ['Column3SA', 2]
+              ]
+            }]
+          },
         chart: {
             type: 'column',
             backgroundColor: 'transparent'
@@ -296,7 +493,6 @@ $(function () {
             shadow: false
 
         },
-
 
         tooltip: {
             headerFormat: '<span style="font-size:16px; font-weight:800;">{series.name}</span><br>',

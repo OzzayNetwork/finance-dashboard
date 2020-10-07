@@ -2,6 +2,45 @@ $(function () {
 
     // Initiate the chart
     $('#the-map-container-drilldown').highcharts('Map', {
+        xAxis: {
+          visible:true,
+            type: 'category',
+            reversed: false,
+            lineWidth: 0,
+            minorGridLineWidth: 0,
+            lineColor: 'transparent',
+            labels: {
+                enabled: false
+            },
+            minorTickLength: 0,
+            tickLength: 0,
+            labels: {
+                style: {
+                    color: '#a5a8ad'
+                }
+            }
+        },
+        yAxis: {
+          visible:true,
+          reversed: false,
+          lineWidth: 0,
+          minorGridLineWidth: 0,
+          lineColor: 'transparent',
+          labels: {
+              enabled: false
+          },
+          minorTickLength: 0,
+          tickLength: 0,
+          title: {
+              text: 'Total Collections',
+              labels: {
+                  style: {
+                      color: '#a5a8ad'
+                  }
+              }
+          }
+
+        },
         series: [{
             animation: {
                 duration: 1000
@@ -11,7 +50,7 @@ $(function () {
             color: '#3b3b3b', // blue
             borderWidth: 1,
             borderColor: '#212327',
-			borderColor: '#212327',
+		      	borderColor: '#212327',
              dataLabels: {
                 enabled: true,
                 backgroundColor: 'rgba(0,0,0,0.3)',
@@ -19,21 +58,20 @@ $(function () {
                 padding: 4,
 //                color: '#a5a8ad',
                 format: '{point.name}',
-				 shadow: "none",
+				        shadow: "none",
                
                 style: {
                     textTransform: 'uppercase',
                     fontWeight: '500',
-					fontFamily: '"Muli", sans-serif',
-  					fontSize: '1rem'
+				          	fontFamily: '"Muli", sans-serif',
+  					        fontSize: '1rem'
                 }
             },
-			symbol:'circle',
-			 marker: {
-            symbol: 'square'
-        },
+            symbol:'circle',
+            marker: {
+                  symbol: 'square'
+              },
     
-
             "type": "map",
             "joinBy": "id",
             "mapData": [{
@@ -138,52 +176,60 @@ $(function () {
                 }
             ],
             data: [{
+                    //Langata
                     "id": "id0",
                     "y": 0,
-                    "drilldown": "Langata",
-                    value: 30
+                    drilldown: 'langata',
+                    value: 252389
                 },
                 {
                     //dagoreti south
                     "id": "id1",
                     "y": 1,
                     value: 6,
+                    drilldown: 'dagoreti_south',
                     name: "Point2",
                 },
                 {
                     //kibra
                     "id": "id2",
                     "y": 2,
+                    drilldown: 'kibra',
                     value: 252389
                 },
                 {
                     //dagoreti north
                     "id": "id3",
                     "y": 3,
+                    drilldown: 'dagoreti_north',
                     value: 256488
                 },
                 {
                     //starehe
                     "id": "id4",
                     "y": 4,
+                    drilldown: 'starehe',
                     value: 924656
                 },
                 {
                     //westlands
                     "id": "id5",
                     "y": 5,
+                    drilldown: 'westlands',
                     value: 333
                 },
                 {
                     //embakasi south
                     "id": "id6",
                     "y": 6,
+                    drilldown: 'embakasi_south',
                     value: 3216
                 },
                 {
                     //makadara
                     "id": "id7",
                     "y": 7,
+                    drilldown: 'makadara',
                     value: 23215
                 },
                 {
@@ -255,7 +301,366 @@ $(function () {
                 }
             ]
         }],
-
+        drilldown: {
+          animation: {
+            duration: 1000
+          },
+          activeDataLabelStyle: {
+          color: '#FFFFFF',
+          textDecoration: 'none',
+          textShadow: '0 0 3px #000000'
+          },
+          drillUpButton: {
+            relativeTo: 'spacingBox',
+            position: {
+              x: 0,
+              y: 60
+            }
+          },
+          chart: {
+              backgroundColor: 'transparent',
+              type: 'column',
+              inverted: true,
+          },
+          series: [{
+            id: 'langata',
+            name: 'langata',
+            borderWidth: 1,
+            borderColor: 'transparent',
+            colorByPoint: true,
+            data: [{
+              name: '1st',
+              y: 22,
+              drilldown: 'dec1'
+          },
+          {
+              name: '2nd',
+              y: 22,
+              value:22,
+              drilldown: 'dec2'
+          },
+          {
+              name: '3rd',
+              y: 224,
+              drilldown: 'dec3'
+          },
+          {
+              name: '4th',
+              y: 202,
+              drilldown: 'dec3'
+          },
+          {
+              name: '5th',
+              y: 272,
+              drilldown: 'dec5'
+          },
+          {
+              name: '6th',
+              y: 172,
+              drilldown: 'dec6'
+          }, {
+              name: '7th',
+              y: 122,
+              drilldown: 'dec6'
+          }, {
+              name: '8th',
+              y: 172,
+              drilldown: 'dec8'
+          }, {
+              name: '9th',
+              y: 105,
+              drilldown: 'dec9'
+          }, {
+              name: '10th',
+              y: 272,
+              drilldown: 'dec10'
+          }, {
+              name: '11th',
+              y: 272,
+              drilldown: 'dec11'
+          }, {
+              name: '12th',
+              y: 572,
+              drilldown: 'dec12'
+          }, {
+              name: '13th',
+              y: 72,
+              drilldown: 'dec13'
+          }, {
+              name: '13th',
+              y: 292,
+              drilldown: 'dec13'
+          }, {
+              name: '14th',
+              y: 472,
+              drilldown: 'dec14'
+          }, {
+              name: '15th',
+              y: 272,
+              drilldown: 'dec15'
+          }, {
+              name: '16th',
+              y: 394,
+              drilldown: 'dec16'
+          }, {
+              name: '17th',
+              y: 27,
+              drilldown: 'dec17'
+          }, {
+              name: '18th',
+              y: 372,
+              drilldown: 'dec18'
+          }, {
+              name: '19th',
+              y: 524,
+              drilldown: 'dec19'
+          }, {
+              name: '20th',
+              y: 564,
+              drilldown: 'dec20'
+          }, {
+              name: '21st',
+              y: 272,
+              drilldown: 'dec21'
+          }, {
+              name: '22nd',
+              y: 22,
+              drilldown: 'dec22'
+          }, {
+              name: '23rd',
+              y: 272,
+              drilldown: 'dec23'
+          }, {
+              name: '24th',
+              y: 272,
+              drilldown: 'dec24'
+          }, {
+              name: '25th',
+              y: 172,
+              drilldown: 'dec25'
+          }, {
+              name: '26th',
+              y: 272,
+              drilldown: 'dec26'
+          }, {
+              name: '27th',
+              y: 272,
+              drilldown: 'dec27'
+          }, {
+              name: '28th',
+              y: 452,
+              drilldown: 'dec28'
+          }, {
+              name: '29th',
+              y: 458,
+              drilldown: 'dec29'
+          }, {
+              name: '30th',
+              y: 226,
+              drilldown: 'dec30'
+          }, {
+              name: '31st',
+              y: 152,
+              drilldown: 'dec31'
+          }
+            ]
+          },{
+            id: 'dagoreti_south',
+            name: 'dagoreti_south',
+            borderWidth: 1,
+            borderColor: 'transparent',
+            colorByPoint: true,
+            data: [{
+              name: '1st',
+              y: 22,
+              value:22,
+              drilldown: 'dec1'
+          },
+          {
+              name: '2nd',
+              y: 22,
+              drilldown: 'dec2'
+          },
+          {
+              name: '3rd',
+              y: 224,
+              drilldown: 'dec3'
+          },
+          {
+              name: '4th',
+              y: 202,
+              drilldown: 'dec3'
+          },
+          {
+              name: '5th',
+              y: 272,
+              drilldown: 'dec5'
+          },
+          {
+              name: '6th',
+              y: 172,
+              drilldown: 'dec6'
+          }, {
+              name: '7th',
+              y: 122,
+              drilldown: 'dec6'
+          }, {
+              name: '8th',
+              y: 172,
+              drilldown: 'dec8'
+          }, {
+              name: '9th',
+              y: 105,
+              drilldown: 'dec9'
+          }, {
+              name: '10th',
+              y: 272,
+              drilldown: 'dec10'
+          }, {
+              name: '11th',
+              y: 272,
+              drilldown: 'dec11'
+          }, {
+              name: '12th',
+              y: 572,
+              drilldown: 'dec12'
+          }, {
+              name: '13th',
+              y: 72,
+              drilldown: 'dec13'
+          }, {
+              name: '13th',
+              y: 292,
+              drilldown: 'dec13'
+          }, {
+              name: '14th',
+              y: 472,
+              drilldown: 'dec14'
+          }, {
+              name: '15th',
+              y: 272,
+              drilldown: 'dec15'
+          }, {
+              name: '16th',
+              y: 394,
+              drilldown: 'dec16'
+          }, {
+              name: '17th',
+              y: 27,
+              drilldown: 'dec17'
+          }, {
+              name: '18th',
+              y: 372,
+              drilldown: 'dec18'
+          }, {
+              name: '19th',
+              y: 524,
+              drilldown: 'dec19'
+          }, {
+              name: '20th',
+              y: 564,
+              drilldown: 'dec20'
+          }, {
+              name: '21st',
+              y: 272,
+              drilldown: 'dec21'
+          }, {
+              name: '22nd',
+              y: 22,
+              drilldown: 'dec22'
+          }, {
+              name: '23rd',
+              y: 272,
+              drilldown: 'dec23'
+          }, {
+              name: '24th',
+              y: 272,
+              drilldown: 'dec24'
+          }, {
+              name: '25th',
+              y: 172,
+              drilldown: 'dec25'
+          }, {
+              name: '26th',
+              y: 272,
+              drilldown: 'dec26'
+          }, {
+              name: '27th',
+              y: 272,
+              drilldown: 'dec27'
+          }, {
+              name: '28th',
+              y: 452,
+              drilldown: 'dec28'
+          }, {
+              name: '29th',
+              y: 458,
+              drilldown: 'dec29'
+          }, {
+              name: '30th',
+              y: 226,
+              drilldown: 'dec30'
+          }, {
+              name: '31st',
+              y: 152,
+              drilldown: 'dec31'
+          }
+            ]
+          },{
+            name: 'kibra',
+            id: 'kibra',
+            colorByPoint: true,
+            borderWidth: 1,
+            borderColor: 'transparent',
+            data: [
+              ['Column1AF', 6],
+              ['Column2AF', 6],
+              ['Column3AF', 5]
+            ]
+          },{
+            name: 'dagoreti_north',
+            id: 'dagoreti_north',
+            colorByPoint: true,
+            borderWidth: 1,
+            borderColor: 'transparent',
+            data: [
+              ['Column1AS', 9],
+              ['Column2AS', 1],
+              ['Column3AS', 2]
+            ]
+          },{
+            type: 'bar',
+            name: 'North America',
+            colorByPoint: true,
+            data: [
+              ['Column1NA', 9],
+              ['Column2NA', 1],
+              ['Column3NA', 9]
+            ]
+          },{
+            name: 'starehe',
+            id: 'starehe',
+            colorByPoint: true,
+            borderWidth: 1,
+            borderColor: 'transparent',
+            data: [
+              ['Column1SA', 2],
+              ['Column2SA', 9],
+              ['Column3SA', 2]
+            ]
+          }],
+          accessibility: {
+            announceNewData: {
+                enabled: true
+            }
+          },
+          plotOptions: {
+              series: {
+                  borderWidth: 0,
+                  borderColor: '#67ff6b'
+              }
+          },
+        },
         chart: {
             type: 'column',
             backgroundColor: 'transparent'
@@ -281,6 +686,7 @@ $(function () {
             backgroundColor: 'red',
             type: 'logarithmic',
             minColor: '#3b3b3b',
+            opposite: true,
             maxColor: '#45d21a',
             /* stops: [
                 [0, '#3b3b3b'],
@@ -298,160 +704,12 @@ $(function () {
 
         },
 
-
         tooltip: {
             headerFormat: '<span style="font-size:16px; font-weight:800;">{series.name}</span><br>',
             pointFormat: '<span  style="font-size:16px; font-weight:800; color:{point.color}; text-transform:ucapitalize;">{point.name}</span>: <b style="color:{point.color}">KES {point.value}</b><br/>',
 
 
         },
-
-        drilldown: {
-            chart: {
-                backgroundColor: 'transparent',
-                type: 'column'
-            },
-            series: [{
-                name: 'Langata 2020',
-                id: 'Langata',
-                data: [{
-                        name: '1st',
-                        y: 22,
-                        drilldown: 'lang1'
-                    },
-                    {
-                        name: '2nd',
-                        y: 22,
-                        drilldown: 'lang2'
-                    },
-                    {
-                        name: '3rd',
-                        y: 224,
-                        drilldown: 'lang3'
-                    },
-                    {
-                        name: '4th',
-                        y: 202,
-                        drilldown: 'lang3'
-                    },
-                    {
-                        name: '5th',
-                        y: 272,
-                        drilldown: 'lang5'
-                    },
-                    {
-                        name: '6th',
-                        y: 172,
-                        drilldown: 'lang6'
-                    }, {
-                        name: '7th',
-                        y: 122,
-                        drilldown: 'lang6'
-                    }, {
-                        name: '8th',
-                        y: 172,
-                        drilldown: 'lang8'
-                    }, {
-                        name: '9th',
-                        y: 105,
-                        drilldown: 'lang9'
-                    }, {
-                        name: '10th',
-                        y: 272,
-                        drilldown: 'lang10'
-                    }, {
-                        name: '11th',
-                        y: 272,
-                        drilldown: 'lang11'
-                    }, {
-                        name: '12th',
-                        y: 572,
-                        drilldown: 'lang12'
-                    }, {
-                        name: '13th',
-                        y: 72,
-                        drilldown: 'lang13'
-                    }, {
-                        name: '13th',
-                        y: 292,
-                        drilldown: 'lang13'
-                    }, {
-                        name: '14th',
-                        y: 472,
-                        drilldown: 'lang14'
-                    }, {
-                        name: '15th',
-                        y: 272,
-                        drilldown: 'lang15'
-                    }, {
-                        name: '16th',
-                        y: 394,
-                        drilldown: 'lang16'
-                    }, {
-                        name: '17th',
-                        y: 27,
-                        drilldown: 'lang17'
-                    }, {
-                        name: '18th',
-                        y: 372,
-                        drilldown: 'lang18'
-                    }, {
-                        name: '19th',
-                        y: 524,
-                        drilldown: 'lang19'
-                    }, {
-                        name: '20th',
-                        y: 564,
-                        drilldown: 'lang20'
-                    }, {
-                        name: '21st',
-                        y: 272,
-                        drilldown: 'lang21'
-                    }, {
-                        name: '22nd',
-                        y: 22,
-                        drilldown: 'lang22'
-                    }, {
-                        name: '23rd',
-                        y: 272,
-                        drilldown: 'lang23'
-                    }, {
-                        name: '24th',
-                        y: 272,
-                        drilldown: 'lang24'
-                    }, {
-                        name: '25th',
-                        y: 172,
-                        drilldown: 'lang25'
-                    }, {
-                        name: '26th',
-                        y: 272,
-                        drilldown: 'lang26'
-                    }, {
-                        name: '27th',
-                        y: 272,
-                        drilldown: 'lang27'
-                    }, {
-                        name: '28th',
-                        y: 452,
-                        drilldown: 'lang28'
-                    }, {
-                        name: '29th',
-                        y: 458,
-                        drilldown: 'lang29'
-                    }, {
-                        name: '30th',
-                        y: 226,
-                        drilldown: 'lang30'
-                    }, {
-                        name: '31st',
-                        y: 152,
-                        drilldown: 'lang31'
-                    }
-                ]
-            }]
-        }
-
         /* navigation: {
           buttonOptions: {
             theme: {
@@ -498,128 +756,109 @@ $('#financial-year').click(function () {
 	$('.map-date').text(fy+" Financial Year");
 	 //changing color axis colors
 	$(this).addClass("active").siblings().removeClass("active");
-    $('#the-map-container').highcharts()
+    $('#the-map-container-drilldown').highcharts()
         .colorAxis[0].update({
             min: 1,
 
             minColor: '#3b3b3b',
             maxColor: '#2e71ff'
         });
-    var chart2 = $('#the-map-container').highcharts();
+    var chart2 = $('#the-map-container-drilldown').highcharts();
     //the data 
     chart2.series[0].update([{
             "id": "id0",
-            "y": 0,
             value: 330
         },
         {
             //dagoreti south
             "id": "id1",
-            "y": 1,
             value: 36,
 
         },
         {
             //kibra
             "id": "id2",
-            "y": 2,
             value: 3252389
         },
         {
             //dagoreti north
             "id": "id3",
-            "y": 3,
             value: 3256488
         },
         {
             //starehe
             "id": "id4",
-            "y": 4,
             value: 3924656
         },
         {
             //westlands
             "id": "id5",
-            "y": 5,
             value: 3333
         },
         {
             //embakasi south
             "id": "id6",
-            "y": 6,
             value: 33216
         },
         {
             //makadara
             "id": "id7",
-            "y": 7,
             value: 323215
         },
         {
             //embakasi west
             "id": "id8",
-            "y": 8,
             value: 31564962
         },
         {
             //embakasi central
             "id": "id9",
-            "y": 9,
             value: 33165
 
         },
         {
             //kamkunji
             "id": "id10",
-            "y": 10,
             value: 36216532
         },
         {
             //embakasi north
             "id": "id11",
-            "y": 11,
             value: 356523
         },
         {
             //embakasi east
             "id": "id12",
-            "y": 12,
             value: 3132132
         },
         {
             //kasarani
             "id": "id13",
-            "y": 13,
             value: 365413
         },
         {
             //ruaraka 
             "id": "id14",
-            "y": 14,
             value: 656132
         },
         {
             //mathare
             "id": "id15",
-            "y": 15,
             value: 321165
         },
         {
             //roysambu
             "id": "id16",
-            "y": 16,
             value: 30000000
         },
         {
             //unmatched      
             "id": "id18",
-            "y": 18,
             value: 300000
         },
         {
             //langata
             "id": "id19",
-            "y": 19,
             value: 332568962
         }
     ]);
@@ -637,7 +876,7 @@ $('#this-month').click(function () {
 	
     //changing color
 	$(this).addClass("active").siblings().removeClass("active");
-    $('#the-map-container').highcharts()
+    $('#the-map-container-drilldown').highcharts()
         .colorAxis[0].update({
             min: 1,
 
@@ -645,7 +884,7 @@ $('#this-month').click(function () {
             maxColor: '#fdc502'
         });
 
-    var chart2 = $('#the-map-container').highcharts();
+    var chart2 = $('#the-map-container-drilldown').highcharts();
     chart2.series[0].update([{
             "id": "id0",
             "y": 0,
@@ -775,14 +1014,14 @@ $('#today').click(function () {
 //	alert(the_date);
     //color change
 	$(this).addClass("active").siblings().removeClass("active");
-    $('#the-map-container').highcharts()
+    $('#the-map-container-drilldown').highcharts()
         .colorAxis[0].update({
             min: 1,
 
             minColor: '#3b3b3b',
             maxColor: '#45d21a'
         });
-    var chart2 = $('#the-map-container').highcharts();
+    var chart2 = $('#the-map-container-drilldown').highcharts();
     chart2.series[0].update([{
                 "id": "id0",
                 "y": 0,
@@ -907,7 +1146,7 @@ $('#today').click(function () {
 });
 
 //this week
-    $('#this-week').click(function() {
+$('#this-week').click(function() {
 		//getting this weeks dates
 		const today = moment();
 		const otherday=moment()
@@ -919,14 +1158,14 @@ $('#today').click(function () {
 		
     //color change
 		$(this).addClass("active").siblings().removeClass("active");
-    $('#the-map-container').highcharts()
+    $('#the-map-container-drilldown').highcharts()
             .colorAxis[0].update({
 				min: 1,
 				
 				minColor: '#3b3b3b',
 				maxColor: '#ea00d9'
 			});
-    		 var chart2 = $('#the-map-container').highcharts();
+    		 var chart2 = $('#the-map-container-drilldown').highcharts();
         chart2.series[0].update( [
       {
         "id": "id0",
